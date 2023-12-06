@@ -1,0 +1,16 @@
+syntax = "proto3"; // which syntax this file uses
+option java_multiple_files = true; // code will be generated in multiple files
+package com.example.protos; // package name where we want our classes to be generated
+
+message HelloRequest {
+  string firstName = 1; // each attribute gets a unique tag. Protocol buffer uses this tag instead of the name
+  string lastName = 2;
+}
+
+message HelloResponse {
+  string greeting = 1;
+}
+
+service HelloService {
+  rpc hello(HelloRequest) returns (HelloResponse);
+}
